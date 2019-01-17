@@ -15,6 +15,3 @@ def perform
 end
 
 perform
-
-
-# //*[@id="id-bitcoin"]/td[2]
