@@ -8,10 +8,11 @@ def crypto_scrapper
 	value = page.xpath('//*[@id="currencies-all"]/tbody/tr/td[5]/a/text()').map { |value| value.text }
 
 	id.zip(value).map { |id, value| Hash[id, value] }
+	# binding.pry
 end
 
 def perform
-	crypto_scrapper
+	print crypto_scrapper
 end
 
 perform
