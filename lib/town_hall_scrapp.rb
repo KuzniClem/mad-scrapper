@@ -9,10 +9,10 @@ end
 def get_townhall_url
   page_url = "http://www.annuaire-des-mairies.com/val-d-oise.html"
   page = Nokogiri::HTML(open("#{page_url}"))
-  url = page.xpath('/html/body/table//tr[3]//tr[1]//td[2]//table[1]//tr[2]//tr//a/@href').map { |url| url.to_s }
-  url.map { |url|
+  url = page.xpath('/html/body/table//tr[3]//tr[1]//td[2]//table[1]//tr[2]//tr//a/@href').map { |turl| turl.to_s }
+  url.map { |turl|
   	page.xpath('/html/body/table//tr[3]//tr[1]//td[2]//table[1]//tr[2]//tr//a/text()').map { |town_name|
-  		Hash["#{town_name.to_s}": get_townhall_email(page_url.gsub(/val-d-oise\.html/, '') + url.gsub(/\A\./, ''))]
+  		Hash["#{town_name.to_s}": get_townhall_email(page_url.gsub(/val-d-oise\.html/, '') + turl.gsub(/\A\./, ''))]
   	}
   }
   # binding.pry
