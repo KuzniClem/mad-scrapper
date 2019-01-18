@@ -5,13 +5,13 @@ require 'nokogiri'
 require 'PRY'
 
 def em_finder(townhall_url)
-  Nokogiri::HTML(RestClient.get(townhall_url.to_s)).xpath('//tbody[1]
+  Nokogiri::HTML(open(townhall_url.to_s)).xpath('//tbody[1]
     //tr[4]/td[2]/text()').first.to_s
 end
 
 def url_finder
   page_url = 'http://www.annuaire-des-mairies.com/val-d-oise.html'
-  page = Nokogiri::HTML(RestClient.get(page_url.to_s))
+  page = Nokogiri::HTML(open(page_url.to_s))
   url_a = page.xpath('/html/body
     /table//tr[3]//tr[1]//td[2]//table[1]//tr[2]//tr//a/@href').map(&:to_s)
   names_a = page.xpath('/html/body
