@@ -4,7 +4,7 @@ require_relative '../lib/town_hall_scrapp'
 
 describe 'city contact method' do
   it 'return Array ?' do
-    expect(get_townhall_url).to be_instance_of Array
+    expect(townhall_url).to be_instance_of Array
   end
 end
 
